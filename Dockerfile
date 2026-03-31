@@ -1,6 +1,6 @@
 # Use the official Microsoft Playwright image as base
 # This image contains all necessary system dependencies for Chromium
-FROM mcr.microsoft.com/playwright/python:v1.40.0-jammy
+FROM mcr.microsoft.com/playwright/python:v1.58.0-jammy
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
