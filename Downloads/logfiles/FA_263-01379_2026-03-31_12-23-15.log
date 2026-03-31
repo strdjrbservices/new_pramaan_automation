@@ -1,0 +1,5 @@
+[12:23:15 PM] Log session started: FA_263-01379_2026-03-31_12-23-15.log
+[12:23:17 PM] Error downloading for ApprID 198576: Page.goto: net::ERR_ABORTED at https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=198576
+Call log:
+  - navigating to "https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=198576", waiting until "load"
+

@@ -1,0 +1,6 @@
+flask
+playwright>=1.40.0
+pytest-playwright>=0.4.0
+openpyxl
+aiosmtplib
+werkzeug

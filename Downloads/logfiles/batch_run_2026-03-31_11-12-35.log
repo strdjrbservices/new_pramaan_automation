@@ -1,0 +1,39 @@
+[11:12:35 AM] Log session started: batch_run_2026-03-31_11-12-35.log
+[11:12:35 AM] Found 0 processed files in log.
+[11:12:35 AM] Found 4 PDF file(s) to process in 'C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\new_files_revised': 262-00275_revised.pdf, 262-03894_revised.pdf, 263-02043_revised.pdf, 263-03032_revised.pdf
+[11:12:35 AM] 
+--- Starting workflow for: 262-00275_revised.pdf ---
+[11:12:39 AM] 
+--- Starting Revised File Review ---
+[11:12:40 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:12:48 AM] ❌ Error during Revised File Review: Username and password not set in environment variables.
+[11:12:48 AM] Error screenshot saved to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\error_screenshots\error_screenshot_1774969968.png
+[11:13:00 AM] Email sent to strdjrbservices2@gmail.com.
+[11:13:00 AM] Attempt 1 failed for 262-00275_revised.pdf: Username and password not set in environment variables.
+[11:13:00 AM] Conditioning for retry (5.0s cool-down)...
+[11:13:05 AM] RETRY ATTEMPT 2 for: 262-00275_revised.pdf
+[11:13:07 AM] 
+--- Starting Revised File Review ---
+[11:13:07 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:13:13 AM] ❌ Error during Revised File Review: Username and password not set in environment variables.
+[11:13:13 AM] Error screenshot saved to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\error_screenshots\error_screenshot_1774969993.png
+[11:13:24 AM] Email sent to strdjrbservices2@gmail.com.
+[11:13:24 AM] Attempt 2 failed for 262-00275_revised.pdf: Username and password not set in environment variables.
+[11:13:24 AM] --- FAILED workflow for: 262-00275_revised.pdf ---
+[11:13:24 AM] Moved failed file to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\Errors\262-00275_revised.pdf
+[11:13:24 AM] 
+--- Starting workflow for: 262-03894_revised.pdf ---
+[11:13:26 AM] 
+--- Starting Revised File Review ---
+[11:13:26 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:13:33 AM] ❌ Error during Revised File Review: Username and password not set in environment variables.
+[11:13:33 AM] Error screenshot saved to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\error_screenshots\error_screenshot_1774970013.png
+[11:13:46 AM] Email sent to strdjrbservices2@gmail.com.
+[11:13:46 AM] Attempt 1 failed for 262-03894_revised.pdf: Username and password not set in environment variables.
+[11:13:46 AM] Conditioning for retry (5.0s cool-down)...
+[11:13:51 AM] RETRY ATTEMPT 2 for: 262-03894_revised.pdf
+[11:13:53 AM] 
+--- Starting Revised File Review ---
+[11:13:53 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:13:58 AM] ❌ Error during Revised File Review: Username and password not set in environment variables.
+[11:13:58 AM] Error screenshot saved to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\error_screenshots\error_screenshot_1774970038.png

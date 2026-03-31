@@ -1,0 +1,45 @@
+[11:53:27 AM] Log session started: 262-03894_revised.pdf_2026-03-31_11-53-27.log
+[11:53:27 AM] 
+--- Starting workflow for: 262-03894_revised.pdf ---
+[11:53:37 AM] 
+--- Starting Revised File Review ---
+[11:53:41 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:53:46 AM] Attempting to log in…
+[11:53:49 AM] Login page title "DJRB Review" found.
+[11:53:50 AM] Login form found. Entering credentials…
+[11:54:00 AM] Login button clicked. Waiting for response…
+[11:55:00 AM] Login successful! Welcome text found.
+[11:55:00 AM] Waiting for and clicking "Revised File Review"...
+[11:55:30 AM] Attempt 1 failed for "Revised File Review". Error: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//a[contains(., 'Revised File Review')] | //button[contains(., 'Revised File Review')]") to be visible
+
+[11:55:30 AM] Retrying in 5s…
+[11:56:05 AM] Attempt 2 failed for "Revised File Review". Error: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//a[contains(., 'Revised File Review')] | //button[contains(., 'Revised File Review')]") to be visible
+
+[11:56:05 AM] Retrying in 5s…
+[11:56:40 AM] Attempt 3 failed for "Revised File Review". Error: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//a[contains(., 'Revised File Review')] | //button[contains(., 'Revised File Review')]") to be visible
+
+[11:56:40 AM] Retrying in 5s…
+[11:57:15 AM] Attempt 4 failed for "Revised File Review". Error: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//a[contains(., 'Revised File Review')] | //button[contains(., 'Revised File Review')]") to be visible
+
+[11:57:15 AM] ❌ Error during Revised File Review: Failed to click "Revised File Review" after 4 attempts.
+[11:57:16 AM] Error screenshot saved to: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\error_screenshots\error_screenshot_1774972635.png
+[11:57:26 AM] Email sent to strdjrbservices2@gmail.com.
+[11:57:28 AM] Attempt 1 failed for 262-03894_revised.pdf: Failed to click "Revised File Review" after 4 attempts.
+[11:57:28 AM] Conditioning for retry (5.0s cool-down)...
+[11:57:33 AM] RETRY ATTEMPT 2 for: 262-03894_revised.pdf
+[11:57:36 AM] 
+--- Starting Revised File Review ---
+[11:57:39 AM] Navigating to https://qa-pramaan.vercel.app/...
+[11:57:43 AM] Attempting to log in…
+[11:57:44 AM] Login page title "DJRB Review" found.
+[11:57:44 AM] Login form found. Entering credentials…
+[11:57:45 AM] Login button clicked. Waiting for response…
+[11:58:19 AM] ❌ Error during Revised File Review: Login failed: Login failed – invalid credentials.

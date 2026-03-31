@@ -1,0 +1,96 @@
+[10:40:17 AM] Log session started: fastapp_check_2026-03-31_10-40-17.log
+[10:40:17 AM] --- Starting FastApp Independent Process ---
+[10:40:21 AM] Navigating to https://fastapp.spurams.com/login.aspx?ReturnUrl=%2f...
+[10:40:26 AM] Page loaded successfully! Title is: 'Appraisal Management System - Login'
+[10:40:26 AM] Filling in FastApp login credentials...
+[10:40:26 AM] Clicking FastApp Log In button as 'DJRBREVIEW'...
+[10:40:29 AM] Waiting for FastApp Dashboard to load...
+[10:40:37 AM] ✅ Successfully logged into FastApp Dashboard.
+[10:40:37 AM] Checking for file counts in 'REVIEW ORDERS' section...
+[10:40:38 AM]      -> New Review Orders: 85
+[10:40:38 AM]      -> Review Orders In Progress: 152
+[10:40:38 AM]      -> Revised Review Orders: 36
+[10:40:38 AM] ✅ Final Count Report - New: 85, In Progress: 152, Revised: 36
+[10:40:43 AM] Found 36 orders in Revised Review Orders
+[10:40:56 AM] Targeting revised file: 866 lyons ave
+[10:41:16 AM] Saved revised report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\new_files_revised\263-02043_revised.pdf
+[10:41:16 AM] Found 3 potential PDF links in 'Other Supporting Documents' for 263-02043
+[10:41:16 AM] Checking link: '866 Lyons Ave.pdf' (Similarity: 1.00)
+[10:41:16 AM] ✅ Matched old file: 866 Lyons Ave.pdf
+[10:41:24 AM] Successfully saved old report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\old_files_revised\263-02043.pdf
+[10:41:24 AM] Saved order form HTML: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\HTMLFiles\263-02043.html
+[10:41:34 AM] Targeting revised file: 1109 martha lee ave
+[10:41:45 AM] Saved revised report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\new_files_revised\263-03032_revised.pdf
+[10:41:45 AM] Found 6 potential PDF links in 'Other Supporting Documents' for 263-03032
+[10:41:45 AM] Checking link: 'SSR_FRE.pdf' (Similarity: 0.15)
+[10:41:45 AM] Checking link: 'SSR_FNM.pdf' (Similarity: 0.08)
+[10:41:45 AM] Checking link: '1109 Martha Lee Ave.pdf' (Similarity: 1.00)
+[10:41:45 AM] ✅ Matched old file: 1109 Martha Lee Ave.pdf
+[10:41:51 AM] Successfully saved old report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\old_files_revised\263-03032.pdf
+[10:41:52 AM] Saved order form HTML: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\HTMLFiles\263-03032.html
+[10:42:04 AM] Targeting revised file: 6316 palm view dr_revised
+[10:42:08 AM] Saved revised report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\new_files_revised\262-00275_revised.pdf
+[10:42:08 AM] Found 7 potential PDF links in 'Other Supporting Documents' for 262-00275
+[10:42:08 AM] Checking link: 'Mrosek - 6316 Palm Commitment.pdf' (Similarity: 0.44)
+[10:42:08 AM] Checking link: '6316 Palm View Ave(1).pdf' (Similarity: 0.70)
+[10:42:08 AM] ✅ Matched old file: 6316 Palm View Ave(1).pdf
+[10:42:12 AM] Successfully saved old report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\old_files_revised\262-00275.pdf
+[10:42:12 AM] Saved order form HTML: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\HTMLFiles\262-00275.html
+[10:42:19 AM] Targeting revised file: 801 steuben st - report v4_revised
+[10:42:22 AM] Saved revised report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\new_files_revised\262-03894_revised.pdf
+[10:42:22 AM] Found 7 potential PDF links in 'Other Supporting Documents' for 262-03894
+[10:42:22 AM] Checking link: 'LLFG - ROV - 801 Steuben Street.pdf' (Similarity: 0.52)
+[10:42:22 AM] Checking link: 'FastApp Recon Request Form.pdf' (Similarity: 0.33)
+[10:42:22 AM] Checking link: '801 Steuben St - Report V3.PDF' (Similarity: 0.83)
+[10:42:22 AM] ✅ Matched old file: 801 Steuben St - Report V3.PDF
+[10:42:26 AM] Successfully saved old report: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\old_files_revised\262-03894.pdf
+[10:42:26 AM] Saved order form HTML: C:\Users\Admin\.gemini\antigravity\scratch\qa-pramaan-automation\Downloads\HTMLFiles\262-03894.html
+[10:42:27 AM] Error downloading for ApprID 199633: Page.goto: net::ERR_ABORTED at https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=199633
+Call log:
+  - navigating to "https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=199633", waiting until "load"
+
+[10:42:32 AM] Error downloading for ApprID 199387: Page.goto: net::ERR_ABORTED at https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=199387
+Call log:
+  - navigating to "https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=199387", waiting until "load"
+
+[10:42:34 AM] Error downloading for ApprID 193568: Page.goto: net::ERR_ABORTED at https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=193568
+Call log:
+  - navigating to "https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=193568", waiting until "load"
+
+[10:42:34 AM] Error downloading for ApprID 201307: Page.goto: net::ERR_ABORTED at https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=201307
+Call log:
+  - navigating to "https://fastapp.spurams.com/ViewAppraisal.aspx?ApprID=201307", waiting until "load"
+
+[10:42:34 AM] Error downloading for ApprID 201215: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200004: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200647: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 198097: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 197961: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200986: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200907: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 199468: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 195231: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 197595: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 199105: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200617: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 195230: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200855: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 201589: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200088: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200911: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200389: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 199815: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200523: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200893: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200961: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200377: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 201348: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200853: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200506: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 200738: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] Error downloading for ApprID 197917: Page.goto: Target page, context or browser has been closed
+[10:42:34 AM] ✅ TOTAL: Added 36, Skipped 0, Files 12
+[10:42:34 AM] Initiating FastApp logout sequence...
+[10:42:34 AM] UI Logout failed: Locator.is_visible: Target page, context or browser has been closed. Attempting direct endpoint logout...
+[10:42:34 AM] Final logout attempt failed: Page.goto: Target page, context or browser has been closed
+[10:42:35 AM] FastApp Process Failed: Page.wait_for_timeout: Target page, context or browser has been closed

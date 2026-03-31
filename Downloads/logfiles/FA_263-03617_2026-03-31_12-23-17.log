@@ -1,0 +1,7 @@
+[12:23:17 PM] Log session started: FA_263-03617_2026-03-31_12-23-17.log
+[12:23:17 PM] Error downloading for ApprID 200852: Page.goto: Target page, context or browser has been closed
+[12:23:17 PM] ✅ TOTAL: Added 34, Skipped 0, Files 6
+[12:23:17 PM] Initiating FastApp logout sequence...
+[12:23:17 PM] UI Logout failed: Locator.is_visible: Target page, context or browser has been closed. Attempting direct endpoint logout...
+[12:23:17 PM] Final logout attempt failed: Page.goto: Target page, context or browser has been closed
+[12:23:19 PM] FastApp Process Failed: Page.wait_for_timeout: Target page, context or browser has been closed

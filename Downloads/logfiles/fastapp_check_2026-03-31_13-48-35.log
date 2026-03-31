@@ -1,0 +1,7 @@
+[01:48:35 PM] Log session started: fastapp_check_2026-03-31_13-48-35.log
+[01:48:35 PM] --- Starting FastApp Independent Process ---
+[01:48:40 PM] Navigating to https://fastapp.spurams.com/login.aspx?ReturnUrl=%2f...
+[01:48:43 PM] FastApp Process Failed: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://fastapp.spurams.com/login.aspx?ReturnUrl=%2f", waiting until "load"
+
