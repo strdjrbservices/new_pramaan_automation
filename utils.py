@@ -10,17 +10,21 @@ import playwright.async_api as pw  # type: ignore
 from playwright.sync_api import sync_playwright  # type: ignore
 
 # Environment Detection
-IS_PRODUCTION = os.environ.get('PYTHONANYWHERE_DOMAIN') is not None
+IS_PRODUCTION = os.environ.get('PYTHONANYWHERE_DOMAIN') is not None or os.environ.get('RENDER') is not None
 BASE_DIR = Path(__file__).resolve().parent
 
 def get_browser_config():
     """Returns suitable Playwright launch arguments based on environment."""
     if IS_PRODUCTION:
-        return {
+        config = {
             "headless": True,
-            "executable_path": "/usr/bin/chromium", # Standard PythonAnywhere Chromium path
             "args": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         }
+        # PythonAnywhere requires a specific system path
+        if os.environ.get('PYTHONANYWHERE_DOMAIN'):
+            config["executable_path"] = "/usr/bin/chromium"
+            
+        return config
     return {"headless": False}
 
 # Standard logging setup
