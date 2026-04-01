@@ -15,8 +15,8 @@ def verify():
         # Login
         logger.info("Navigating to login page...")
         page.goto("https://fastapp.spurams.com/login.aspx")
-        page.fill("input#ctl00_cphBody_Login1_UserName", "DJRBREVIEW")
-        page.fill("input#ctl00_cphBody_Login1_Password", "DJRB5888!#")
+        page.fill("input#ctl00_cphBody_Login1_UserName", "")
+        page.fill("input#ctl00_cphBody_Login1_Password", "")
         page.click("input#ctl00_cphBody_Login1_LoginButton")
         
         # Wait and capture state
