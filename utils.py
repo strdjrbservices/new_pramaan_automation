@@ -430,11 +430,13 @@ def _configure_git():
             subprocess.run(["git", "init"], check=True, capture_output=True)
             if token and repo_url and "https://" in repo_url:
                 auth_url = repo_url.replace("https://", f"https://{token}@")
-                subprocess.run(["git", "remote", "add", "origin", auth_url], check=True, capture_output=True)
+                # Use set-url in case remote already exists
+                subprocess.run(["git", "remote", "add", "origin", auth_url], check=False, capture_output=True)
                 # Shallow fetch to get branch info without full history
                 logger.info("Git: Fetching remote 'main' branch...")
                 subprocess.run(["git", "fetch", "origin", "main", "--depth=1"], check=True, capture_output=True)
-                # Reset to match remote HEAD without losing local files
+                # Create/Reset local main to origin/main and preserve local files
+                subprocess.run(["git", "checkout", "-B", "main", "origin/main"], check=True, capture_output=True)
                 subprocess.run(["git", "reset", "--mixed", "origin/main"], check=True, capture_output=True)
 
         # 2. Basic config
