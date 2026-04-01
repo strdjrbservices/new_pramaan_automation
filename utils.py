@@ -424,7 +424,11 @@ def _configure_git():
         token = os.environ.get("GIT_TOKEN")
         repo_url = os.environ.get("GIT_REPO_URL")
 
-        # 1. Initialize if not a git repo (common on Render/Docker)
+        # 1. Basic config (Identity first to ensure any future commits have an author)
+        subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
+        subprocess.run(["git", "config", "--global", "user.email", user_email], check=True)
+
+        # 2. Initialize if not a git repo (common on Render/Docker)
         if not (BASE_DIR / ".git").exists():
             logger.info("Git: .git folder not found. Initializing repository...")
             subprocess.run(["git", "init"], check=True, capture_output=True)
@@ -439,10 +443,6 @@ def _configure_git():
                 subprocess.run(["git", "checkout", "-B", "main", "origin/main"], check=True, capture_output=True)
                 subprocess.run(["git", "reset", "--mixed", "origin/main"], check=True, capture_output=True)
 
-        # 2. Basic config
-        subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
-        subprocess.run(["git", "config", "--global", "user.email", user_email], check=True)
-        
         # 3. Ensure remote URL is authenticated if we already had a .git but need to push
         if token and repo_url and (BASE_DIR / ".git").exists():
             if "https://" in repo_url:
