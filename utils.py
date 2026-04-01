@@ -424,16 +424,29 @@ def _configure_git():
         token = os.environ.get("GIT_TOKEN")
         repo_url = os.environ.get("GIT_REPO_URL")
 
-        # 1. Basic config
+        # 1. Initialize if not a git repo (common on Render/Docker)
+        if not (BASE_DIR / ".git").exists():
+            logger.info("Git: .git folder not found. Initializing repository...")
+            subprocess.run(["git", "init"], check=True, capture_output=True)
+            if token and repo_url and "https://" in repo_url:
+                auth_url = repo_url.replace("https://", f"https://{token}@")
+                subprocess.run(["git", "remote", "add", "origin", auth_url], check=True, capture_output=True)
+                # Shallow fetch to get branch info without full history
+                logger.info("Git: Fetching remote 'main' branch...")
+                subprocess.run(["git", "fetch", "origin", "main", "--depth=1"], check=True, capture_output=True)
+                # Reset to match remote HEAD without losing local files
+                subprocess.run(["git", "reset", "--mixed", "origin/main"], check=True, capture_output=True)
+
+        # 2. Basic config
         subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
         subprocess.run(["git", "config", "--global", "user.email", user_email], check=True)
         
-        # 2. Update remote if token is provided to allow authenticated push
-        if token and repo_url:
-            # Format: https://<token>@github.com/user/repo.git
+        # 3. Ensure remote URL is authenticated if we already had a .git but need to push
+        if token and repo_url and (BASE_DIR / ".git").exists():
             if "https://" in repo_url:
                 auth_url = repo_url.replace("https://", f"https://{token}@")
-                subprocess.run(["git", "remote", "set-url", "origin", auth_url], check=True)
+                # Use set-url in case remote already exists
+                subprocess.run(["git", "remote", "set-url", "origin", auth_url], check=False)
             logger.success("Git: Configured remote URL with authentication token.")
             
     except Exception as e:
