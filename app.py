@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename  # pyre-ignore
 from automation import run_automation  # pyre-ignore
 from automation_revised import run_revised_automation  # pyre-ignore
 from automation_fastapp import run_fastapp_automation  # pyre-ignore
-from utils import NEW_FILES_REVISED_PATH, OLD_FILES_REVISED_PATH, HTML_FILES_PATH, LOG_FILES_PATH, DOWNLOAD_PATH, PROCESSED_FILES_PATH, ERROR_FILES_PATH, FULL_FILE_PATH, PAUSE_LOCK_FILE, TERMINATION_LOCK_FILE, logger, IS_PRODUCTION  # pyre-ignore
+from utils import NEW_FILES_REVISED_PATH, OLD_FILES_REVISED_PATH, HTML_FILES_PATH, LOG_FILES_PATH, DOWNLOAD_PATH, PROCESSED_FILES_PATH, ERROR_FILES_PATH, FULL_FILE_PATH, PAUSE_LOCK_FILE, TERMINATION_LOCK_FILE, logger, IS_PRODUCTION, git_commit_file  # pyre-ignore
 
 app = Flask(__name__)
 
@@ -66,6 +66,9 @@ def generic_upload_to_folder(folder_key):
     filename = secure_filename(file.filename)
     save_path = os.path.join(path, filename)
     file.save(save_path)
+    
+    # Commit to git repository
+    git_commit_file(save_path, f"Manual Upload: {filename} to {folder_key}")
     
     return jsonify({"message": f"Successfully stored {filename} in {folder_key.upper()} repository"})
 
@@ -359,6 +362,9 @@ def upload_file():
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         
+        # Commit to git
+        git_commit_file(file_path, f"Manual Upload: {filename}")
+        
         username = request.form.get('username')
         password = request.form.get('password')
 
@@ -408,8 +414,10 @@ def upload_revised_files():
         password = request.form.get('password')
 
         # Storing only - NO automatic start
-        # thread = threading.Thread(target=execute_automation_batch, args=([new_pdf_name], username, password, mode))
-        # thread.start()
+        # Commit new PDF
+        git_commit_file(new_pdf_path, f"Manual Upload (Revised Workflow): {new_pdf_name}")
+        if old_pdf_path: git_commit_file(old_pdf_path, f"Manual Upload (Revised Workflow): Matching Old PDF")
+        if html_path: git_commit_file(html_path, f"Manual Upload (Revised Workflow): Matching HTML Reference")
 
         return jsonify({"message": f"Successfully stored {new_pdf_name}. Automation must be launched manually from the dashboard."})
 

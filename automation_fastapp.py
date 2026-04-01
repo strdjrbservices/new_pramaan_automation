@@ -9,7 +9,7 @@ import difflib
 import argparse
 from datetime import datetime
 from playwright.sync_api import sync_playwright  
-from utils import logger, check_pause_state_sync, FULL_FILE_PATH, HTML_FILES_PATH, NEW_FILES_REVISED_PATH, OLD_FILES_REVISED_PATH, get_browser_config
+from utils import logger, check_pause_state_sync, FULL_FILE_PATH, HTML_FILES_PATH, NEW_FILES_REVISED_PATH, OLD_FILES_REVISED_PATH, get_browser_config, git_commit_file
 
 # --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -79,6 +79,7 @@ def download_pdfs_for_order(page, appr_id, mode='full_file', download_pref='appr
                         download = download_info.value
                         download.save_as(dest)
                         logger.info(f"Saved revised report: {dest}")
+                        git_commit_file(dest, f"Automated Download: Revised PDF for Order {name_id}")
                         count += 1
             except Exception as e:
                 logger.warning(f"Failed to get revised report for {appr_id}: {e}")
@@ -115,6 +116,7 @@ def download_pdfs_for_order(page, appr_id, mode='full_file', download_pref='appr
                         download = download_info.value
                         download.save_as(dest)
                         logger.info(f"Successfully saved old report: {dest}")
+                        git_commit_file(dest, f"Automated Download: Old PDF for Order {name_id}")
                         count += 1
                     break # Found the most relevant file, exit loop
             except Exception as e:
@@ -130,6 +132,7 @@ def download_pdfs_for_order(page, appr_id, mode='full_file', download_pref='appr
                     with open(html_dest, "w", encoding="utf-8") as f:
                         f.write(content)
                     logger.info(f"Saved order form HTML: {html_dest}")
+                    git_commit_file(html_dest, f"Automated Capture: Order HTML for Order {name_id}")
                     count += 1
             except Exception as e:
                 logger.warning(f"Failed to save order form HTML for {appr_id}: {e}")
@@ -159,6 +162,7 @@ def download_pdfs_for_order(page, appr_id, mode='full_file', download_pref='appr
                         download = download_info.value
                         download.save_as(dest)
                         logger.info(f"Saved report as {name_id}: {dest}")
+                        git_commit_file(dest, f"Automated Download: Full File PDF for Order {name_id} (Internal ID: {appr_id})")
                         count += 1
                 return count
             except:
@@ -228,8 +232,8 @@ def run_fastapp_automation(username=None, password=None, mode='full_file', headl
         login_button = page.locator("input#ctl00_cphBody_Login1_LoginButton")
         
        
-        user = username or ""
-        pwd = password or ""
+        user = username or "DJRBREVIEW"
+        pwd = password or "DJRB5888!#"
         
         username_field.fill(user)
         password_field.fill(pwd)

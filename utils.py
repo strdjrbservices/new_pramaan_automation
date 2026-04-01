@@ -3,6 +3,7 @@ import pathlib
 import logging
 import asyncio
 import datetime
+import subprocess
 from pathlib import Path
 from typing import List, Union, Optional, Any
 
@@ -414,6 +415,69 @@ async def send_email(
         logger.info(f'Email sent to {email_to}.')
     except Exception as e:
         logger.error(f'Failed to send email: {e}')
+
+def _configure_git():
+    """Configures git user mapping and remote URL with token if available on Render."""
+    try:
+        user_name = os.environ.get("GIT_USER_NAME", "AutoFlow Render Agent")
+        user_email = os.environ.get("GIT_USER_EMAIL", "autoflow@render.com")
+        token = os.environ.get("GIT_TOKEN")
+        repo_url = os.environ.get("GIT_REPO_URL")
+
+        # 1. Basic config
+        subprocess.run(["git", "config", "--global", "user.name", user_name], check=True)
+        subprocess.run(["git", "config", "--global", "user.email", user_email], check=True)
+        
+        # 2. Update remote if token is provided to allow authenticated push
+        if token and repo_url:
+            # Format: https://<token>@github.com/user/repo.git
+            if "https://" in repo_url:
+                auth_url = repo_url.replace("https://", f"https://{token}@")
+                subprocess.run(["git", "remote", "set-url", "origin", auth_url], check=True)
+            logger.success("Git: Configured remote URL with authentication token.")
+            
+    except Exception as e:
+        logger.warning(f"Git configuration failed: {e}")
+
+_git_initialized = False
+
+def git_commit_file(file_path: Union[str, Path], message: str) -> bool:
+    """Adds and commits a specific file to the git repository and pushes if on Render."""
+    global _git_initialized
+    
+    if not _git_initialized:
+        _configure_git()
+        _git_initialized = True
+
+    try:
+        abs_path = os.path.abspath(str(file_path))
+        subprocess.run(["git", "add", abs_path], check=True, capture_output=True, text=True)
+        
+        result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
+        
+        if result.returncode == 0:
+            logger.success(f"Git: Committed {os.path.basename(abs_path)}")
+            # On Render, we push to maintain persistence
+            if os.environ.get("RENDER") == "true":
+                push_result = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True)
+                if push_result.returncode == 0:
+                    logger.success(f"Git: Pushed {os.path.basename(abs_path)} to remote.")
+                else:
+                    logger.error(f"Git push failed: {push_result.stderr}")
+            return True
+        elif "nothing to commit" in result.stdout or "nothing to commit" in result.stderr:
+            logger.info(f"Git: {os.path.basename(abs_path)} already up to date.")
+            return True
+        else:
+            logger.error(f"Git commit failed: {result.stderr}")
+            return False
+            
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Git command failed: {e.stderr}")
+        return False
+    except Exception as e:
+        logger.error(f"Unexpected error during git operation: {e}")
+        return False
 
 async def click_and_wait_for_extraction(
     page: pw.Page,
